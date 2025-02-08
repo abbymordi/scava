@@ -1,0 +1,184 @@
+/* General Styles*/
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #FDEEF4; /* Light pink */
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+h1, h2 {
+    color: #4c59af;
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 1.8rem;
+}
+
+p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    color: #666;
+}
+
+
+/* Checkout */
+
+/* Checkout Container */
+/* Checkout Container Centering */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full height of the viewport */
+    margin: 0; /* Reset default margin */
+    padding: 0; /* Reset default padding */
+    background-color: #FDEEF4; /* Light pink background */
+}
+
+.checkout-container {
+    margin: 0 auto; /* Center horizontally */
+}
+
+.checkout-container {
+    background-color: #FFFFFF; /* White box */
+    padding: 30px;
+    max-width: 600px;
+    width: 90%;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    text-align: center;
+}
+
+.checkout-container h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.checkout-container p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+/* Form Styling */
+.checkout-container form {
+    text-align: left;
+    margin-top: 20px;
+}
+
+.checkout-container form label {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.checkout-container form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    border: 1px solid #000; /* Black outline */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #fff; /* White background */
+    color: #000; /* Black text */
+    box-shadow: none; /* Remove inset shadow */
+}
+
+.checkout-container form input:focus {
+    outline: 2px solid #FF6F61; /* Coral outline when focused */
+}
+
+/* Button Styling */
+.checkout-container .btn-primary {
+    width: 100%;
+    padding: 10px;
+    background-color: #FF6F61; /* Coral button color */
+    color: white; /* White text */
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-transform: uppercase;
+}
+
+.checkout-container .btn-primary:hover {
+    background-color: #FF3B3B; /* Darker coral on hover */
+}
+
+/* Strong Text */
+.checkout-container p strong {
+    color: #000; /* Ensure the tour name stays black */
+}
+
+
+/* Hamburger Menu */
+.hamburger-menu {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 30px;
+    cursor: pointer;
+    z-index: 100; /* Ensures it's always on top */
+}
+
+.hamburger-menu .bar {
+    width: 30px;
+    height: 4px;
+    background-color: #333;
+    margin: 5px 0;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+    position: absolute;
+    top: 60px;
+    left: 20px;
+    background-color: #fff;
+    width: 200px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: none; /* Hidden by default */
+}
+
+.dropdown-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown-menu ul li {
+    border-bottom: 1px solid #ddd;
+}
+
+.dropdown-menu ul li:last-child {
+    border-bottom: none;
+}
+
+.dropdown-menu ul li a {
+    display: block;
+    padding: 15px;
+    color: #333;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-menu ul li a:hover {
+    background-color: #f4f4f4;
+}
+
+/* Dropdown Menu Active */
+.dropdown-menu.show {
+    display: block;
+}

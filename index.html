@@ -4,12 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scavego - Explore Our Hunts</title>
-    <link rel="stylesheet" href="home.css"> <!-- Link to the specific CSS file -->
+    <link rel="stylesheet" href="home.css"> <!-- Link to CSS file -->
+
+    <!-- Firebase Scripts -->
+    <script type="module">
+        // Import Firebase functions
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyD8dypR9OudhFkp5AGWNL-5tul87ZaSmyo",
+          authDomain: "scavadata.firebaseapp.com",
+          projectId: "scavadata",
+          storageBucket: "scavadata.appspot.com",
+          messagingSenderId: "609596994806",
+          appId: "1:609596994806:web:fc8983674cbeaffe46a8d7"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth();
+
+        // Sign-Up Logic
+        const signupForm = document.getElementById("signup-form");
+        if (signupForm) {
+            signupForm.addEventListener("submit", (e) => {
+                e.preventDefault();
+                const email = document.getElementById("signup-email").value;
+                const password = document.getElementById("signup-password").value;
+
+                createUserWithEmailAndPassword(auth, email, password)
+                    .then((userCredential) => {
+                        const user = userCredential.user;
+                        document.getElementById("auth-message").innerText = "Sign-Up Successful! 🎉";
+                    })
+                    .catch((error) => {
+                        document.getElementById("auth-message").innerText = `Error: ${error.message}`;
+                    });
+            });
+        }
+
+        // Log-In Logic
+        const loginForm = document.getElementById("login-form");
+        if (loginForm) {
+            loginForm.addEventListener("submit", (e) => {
+                e.preventDefault();
+                const email = document.getElementById("login-email").value;
+                const password = document.getElementById("login-password").value;
+
+                signInWithEmailAndPassword(auth, email, password)
+                    .then((userCredential) => {
+                        const user = userCredential.user;
+                        document.getElementById("auth-message").innerText = "Log-In Successful! 🎉";
+                    })
+                    .catch((error) => {
+                        document.getElementById("auth-message").innerText = `Error: ${error.message}`;
+                    });
+            });
+        }
+    </script>
 </head>
 <body>
     <!-- Header Section -->
     <header class="site-header">
-        <h1>Scavego</h1>
+        <h1>Scava</h1>
     </header>
 
     <!-- Hero Section -->
@@ -61,17 +120,38 @@
         <p>Please, Log In.</p>
         <form id="login-form">
             <div class="input-group">
-                <input type="email" id="email" placeholder="Email">
+                <input type="email" id="login-email" placeholder="Email" required />
             </div>
             <div class="input-group">
-                <input type="password" id="password" placeholder="Password">
+                <input type="password" id="login-password" placeholder="Password" required />
             </div>
-            <button type="submit" class="btn-primary">Continue</button>
+            <button type="submit" class="btn-primary">Log In</button>
             <p>or</p>
-            <button type="button" class="btn-secondary">Create an Account</button>
+            <button type="button" id="switch-to-signup" class="btn-secondary">Sign Up</button>
         </form>
     </section>
+    
+    <section class="signup hidden">
+        <h2>Create an Account</h2>
+        <form id="signup-form">
+            <div class="input-group">
+                <input type="email" id="signup-email" placeholder="Email" required />
+            </div>
+            <div class="input-group">
+                <input type="password" id="signup-password" placeholder="Password" required />
+            </div>
+            <button type="submit" class="btn-primary">Sign Up</button>
+            <p>or</p>
+            <button type="button" id="switch-to-login" class="btn-secondary">Log In</button>
+        </form>
+    </section>
+    <section id="logout-section" class="hidden">
+        <button id="logout-button" class="btn-secondary">Logout</button>
+    </section>
+    
+    
 
-    <script src="script.js"></script> <!-- Link to JavaScript -->
+
 </body>
 </html>
+
